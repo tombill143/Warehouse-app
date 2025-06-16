@@ -1,0 +1,3 @@
+git add railway.json
+git commit -m "i hate this polava"
+git push origin main

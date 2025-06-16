@@ -1,6 +1,0 @@
-{
-  "start": "cds run",
-  "build": "npm install",
-  "install": "npm install",
-  "proxy": "cds run"
-}
