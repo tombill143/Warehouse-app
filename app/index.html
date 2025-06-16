@@ -1,92 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <title>Warehouse App Powered by SAP</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f9fbfd; 
-      margin: 0;
-      padding: 3rem;
-      color: #0072c6;
-      display: flex;
-      justify-content: center;
-    }
+<script>
+  const entities = [
+    'Products',
+    'Locations',
+    'InboundShipments',
+    'OutboundShipments',
+    'Suppliers'
+  ];
 
-    main {
-      background: #ffffff;
-      padding: 2.5rem 3rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0, 114, 198, 0.15);
-      max-width: 480px;
-      width: 100%;
-      text-align: center;
-    }
+  // Use the current origin + the API path
+  const baseUrl = window.location.origin + '/odata/v4/warehouse/';
 
-    h1 {
-      font-weight: 700;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      letter-spacing: 1px;
-    }
+  const container = document.getElementById('endpoints');
+  container.innerHTML = '';
 
-    #endpoints {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    a {
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: #0072c6;
-      text-decoration: none;
-      padding: 0.75rem 1.2rem;
-      border: 2px solid #0072c6;
-      border-radius: 8px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-      box-shadow: 0 2px 6px rgba(0, 114, 198, 0.2);
-    }
-
-    a:hover, a:focus {
-      background-color: #0072c6;
-      color: white;
-      box-shadow: 0 4px 12px rgba(0, 114, 198, 0.35);
-      outline: none;
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <h1>Welcome to our Warehouse Server</h1>
-    <div id="endpoints">
-      <!-- Links will be injected here -->
-    </div>
-  </main>
-
-  <script>
-    const entities = [
-      'Products',
-      'Locations',
-      'InboundShipments',
-      'OutboundShipments',
-      'Suppliers'
-    ];
-
-    const baseUrl = 'http://localhost:4004/odata/v4/warehouse/';
-
-    const container = document.getElementById('endpoints');
-    container.innerHTML = '';
-
-    entities.forEach(entity => {
-      const link = document.createElement('a');
-      link.href = baseUrl + entity;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      link.textContent = entity;
-      container.appendChild(link);
-    });
-  </script>
-</body>
-</html>
+  entities.forEach(entity => {
+    const link = document.createElement('a');
+    link.href = baseUrl + entity;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.textContent = entity;
+    container.appendChild(link);
+  });
+</script>
