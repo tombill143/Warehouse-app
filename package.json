@@ -17,7 +17,8 @@
     "@cap-js/cds-types": "^0.11.0"
   },
   "scripts": {
-    "start": "cds run"
+    "start": "npx cds run",
+    "postinstall": "echo $PATH && ls -la node_modules/.bin/cds"
   },
   "cds": {
     "requires": {
