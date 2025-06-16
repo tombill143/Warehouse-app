@@ -34,3 +34,10 @@ entity OutboundShipment {
   quantity : Integer;
   pickedBy : String;
 }
+
+service WarehouseService {
+  entity Products as projection on Product;
+  entity Locations as projection on Location;
+  entity InboundShipments as projection on InboundShipment;
+  entity OutboundShipments as projection on OutboundShipment;
+}
